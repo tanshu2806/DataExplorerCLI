@@ -17,6 +17,4 @@ class DataExplorer:
             print("CSV loaded successfully")
             rows, columns = self.df.shape
             print("Rows : ",rows)
-            print("Clomns : ",columns)
-
-        
+            print("Clomns : ",columns)        
