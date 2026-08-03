@@ -51,7 +51,7 @@ DataExplorerCLI/
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/DataExplorerCLI.git
+git clone https://github.com/tanshu2806/DataExplorerCLI.git
 cd DataExplorerCLI
 ```
 
