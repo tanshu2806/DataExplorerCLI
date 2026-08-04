@@ -1,3 +1,5 @@
+from explorer import DataExplorer
+
 explorer = DataExplorer()
 
 while True:
@@ -15,14 +17,15 @@ while True:
 
     match choice:
         case 1:
-            explorer
+            path = input("Enter file path: ")
+            explorer.load_csv(path)
         case 2:
-            pass
+            explorer.dataset_info()
         case 3:
-            pass
+            explorer.head()
         case 4:
-            pass
+            explorer.tail()
         case 5:
-            exit
+            break
         case _:
             print("Invalid Choice")
