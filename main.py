@@ -1,13 +1,15 @@
+
 from explorer import DataExplorer
 
 explorer = DataExplorer()
 
 def get_row_count():
+    DEFAULT_ROW = 5
     while True:
         try:
             value = input("How many rows? (Press Enter for default)").strip()
             if value =="":
-                return 5
+                return DEFAULT_ROW
             rows = int(value)
             
             if rows <= 0:
@@ -37,15 +39,18 @@ while True:
     12. Export Cleaned CSV
 
     0. Exit
-
-
-    Enter choice:''')
+    ''')
     try:
         choice = int(input("Enter the choice: "))
     except ValueError:
         print("Please enter a valid number.")
+        continue
 
     match choice:
+        case 0:
+            #To exit from the loop
+            break
+        
         case 1:
             # Load CSV
             path = input("Enter file path: ")
