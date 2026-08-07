@@ -1,25 +1,27 @@
-# Virtual Environments
-myenv/
+# Virtual Environment
 .venv/
 venv/
+env/
 
 # Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
-*.pyd
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Environment Variables
-.env
 
 # VS Code
 .vscode/
 
-# Project Outputs
-exports/
+# Jupyter
+.ipynb_checkpoints/
 
-#Input Files
-datasets/
+# Windows
+Thumbs.db
+
+# Output files
+output/
+
+# CSVs you don't want
+*.xlsx
+
+# Logs
+*.log

@@ -87,14 +87,9 @@ python main.py
 
 ---
 
-## 📌 Current Status
+## Preview
 
-* ✅ Project Setup
-* ✅ CSV Loading
-* 🚧 Dataset Exploration
-* 🚧 Statistics
-* 🚧 Missing Value Handling
-* 🚧 Export Cleaned Dataset
+![CLI Demo](assets/cli_menu.jpeg)
 
 ---
 
