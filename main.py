@@ -1,5 +1,5 @@
-
 from explorer import DataExplorer
+from pathlib import Path
 
 explorer = DataExplorer()
 
@@ -11,7 +11,7 @@ def get_row_count():
             if value =="":
                 return DEFAULT_ROW
             rows = int(value)
-            
+
             if rows <= 0:
                 print("Please enter a number greater than 0.")
                 continue
@@ -19,8 +19,33 @@ def get_row_count():
                 return rows
         except ValueError:
             print("Please enter a valid number.")
-            
-        
+
+def choose_dataset():
+    p = Path("datasets")
+    csv_files = list(p.glob("*.csv"))
+
+    if not csv_files:
+        print("No CSV files found in datasets/")
+        return None
+    
+    for index, file in enumerate(csv_files, start=1):
+        print(f"{index}. {file.name}")
+
+    
+    while True:
+        try:
+            choice = int(input("Enter dataset no: "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
+
+        if choice < 1 or choice > len(csv_files):
+            print("Invalid choice.")
+            continue
+
+        selected_file = csv_files[choice - 1]
+        return selected_file
+
 
 while True:
     print('''========== DATA EXPLORER CLI ==========
@@ -48,13 +73,18 @@ while True:
 
     match choice:
         case 0:
-            #To exit from the loop
+            # To exit from the loop
             break
-        
+
         case 1:
             # Load CSV
-            path = input("Enter file path: ")
-            explorer.load_csv(path)
+            path = choose_dataset()
+            if path is None:
+                path = input("Enter file path: ")
+                explorer.load_csv(path)
+                
+            if path is not None:
+                explorer.load_csv(path)
 
         case 2:
             # Dataset Information

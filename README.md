@@ -46,6 +46,19 @@ DataExplorerCLI/
 
 ---
 
+## 📂 Sample Datasets
+
+The repository includes three sample datasets for testing:
+
+- `Housing.csv` — housing dataset
+- `Titanic-dataset.csv` — Titanic passenger dataset
+- `WineQT.csv` — wine quality dataset
+
+You can also add your own CSV files to the `datasets/` directory.
+The CLI will automatically discover them.
+
+---
+
 ## ⚙️ Installation
 
 Clone the repository:

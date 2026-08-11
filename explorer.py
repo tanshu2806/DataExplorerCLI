@@ -1,4 +1,3 @@
-
 import pandas as pd
 from pathlib import Path
 class DataExplorer:
@@ -11,7 +10,7 @@ class DataExplorer:
         try:
             self.df = pd.read_csv(file_path)
             self.file_name = Path(file_path).name
-            
+
         except FileNotFoundError:
             print("File not Found")
 
@@ -22,9 +21,9 @@ class DataExplorer:
         else:
             print("===================================")
             print("CSV loaded successfully\n")
-            
+
             print(f"Dataset: {self.file_name} \n")
-            
+
             rows, columns = self.df.shape
             print("Rows : ", rows)
             print("Columns : ", columns)
@@ -41,10 +40,10 @@ class DataExplorer:
         if not self.is_loaded():
             return
         assert self.df is not None
-        
+
         rows, columns = self.df.shape
         print(f"Dataset Dimensions: {rows} rows x {columns} columns\n")
-        
+
         print("Detailed Information: ")
         self.df.info()
 
@@ -55,7 +54,6 @@ class DataExplorer:
 
         rows, columns = self.df.shape
         print(f"The dataset has {rows} rows and {columns} columns./n")
-        
 
     def show_columns(self):
         if not self.is_loaded():
@@ -73,7 +71,6 @@ class DataExplorer:
 
         print("Column Datatypes: ")
         print(self.df.dtypes,"\n")
-        
 
     def head(self, rows=5):
         if not self.is_loaded():
@@ -96,25 +93,24 @@ class DataExplorer:
 
         print("\n Number of Missing Values:")
         print(self.df.isnull().sum(),"\n")
-        
 
     def statistics(self):
         """
         Display statistical summary of the dataset.
         """
-        
+
         if not self.is_loaded():
             return
         assert self.df is not None
 
-        #Count the columns having number and object
+        # Count the columns having number and object
         numeric_count = len(self.df.select_dtypes(include='number').columns)
         object_count = len(self.df.select_dtypes(include='object').columns)
-        
-        #Print the number of columns calculated above
+
+        # Print the number of columns calculated above
         print(f"\n Total Numeric Columns: {numeric_count}")
         print(f"Total Object Columns: {object_count} \n ")
-        
+
         print("Statistical summary:")
         print(self.df.describe(include='all'),"\n")
 
@@ -148,8 +144,9 @@ class DataExplorer:
 
         export_dir = Path("exports")
         export_dir.mkdir(parents=True, exist_ok=True)
-        
+
         path = "exports/" + name
         self.df.to_csv(path,index= False)
         print(f"""CSV exported successfully!
 Location: {path} \n """)
+

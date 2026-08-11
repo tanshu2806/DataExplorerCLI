@@ -25,3 +25,6 @@ output/
 
 # Logs
 *.log
+
+#export files
+exports/*.csv
